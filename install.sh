@@ -12,19 +12,7 @@ SKILLS=(
 )
 
 mkdir -p "$HOME/.codex/skills"
-mkdir -p "$HOME/.agents/skills"
 mkdir -p "$HOME/.claude/skills"
-
-link_skill() {
-  local source="$1"
-  local target="$2"
-
-  if [ -e "$target" ] && [ ! -L "$target" ]; then
-    rm -rf "$target"
-  fi
-
-  ln -sfn "$source" "$target"
-}
 
 copy_skill() {
   local source="$1"
@@ -41,9 +29,9 @@ for skill in "${SKILLS[@]}"; do
     continue
   fi
 
-  link_skill "$ROOT/skills/$skill" "$HOME/.codex/skills/$skill"
-  link_skill "$ROOT/skills/$skill" "$HOME/.agents/skills/$skill"
+  copy_skill "$ROOT/skills/$skill" "$HOME/.codex/skills/$skill"
   copy_skill "$ROOT/skills/$skill" "$HOME/.claude/skills/$skill"
+  rm -rf "$HOME/.agents/skills/$skill"
 
   echo "Installed $skill"
 done
