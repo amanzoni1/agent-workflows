@@ -45,9 +45,7 @@ Run:
 ./install.sh
 ```
 
-The installer links skills into Codex-compatible discovery folders and copies skills into Claude Code's personal skill folder because Claude discovery may not follow symlinked directories.
-
-## Project Usage
+The installer copies skills into Codex and Claude Code discovery folders.
 
 Paste `AGENTS.block.md` into a project's `AGENTS.md`, then add project-specific commands, architecture notes, and boundaries below it.
 
