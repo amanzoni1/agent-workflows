@@ -24,6 +24,7 @@ The active goal or workstream. Include whether it is in progress, paused, blocke
 
 - Durable decision and why it matters.
 - Include abandoned or paused directions when future agents might otherwise retry them.
+- Link to detailed design, runbook, schema, or research docs instead of duplicating them here.
 
 ## Commands And Verification
 
@@ -33,6 +34,11 @@ The active goal or workstream. Include whether it is in progress, paused, blocke
 ## Known Issues And Risks
 
 - Blocker, risk, missing input, flaky behavior, external dependency, or unverified area.
+
+## Detailed Docs
+
+- Canonical doc or runbook that was updated or should be read for detail. Prefer paths under `docs/` unless the repo already has a clear established location.
+- Use this section for pointers, not duplicated long-form content.
 
 ## Next Steps
 

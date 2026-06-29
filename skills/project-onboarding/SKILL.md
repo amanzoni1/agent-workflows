@@ -11,7 +11,7 @@ Use this skill to turn a project description and repository evidence into stable
 
 Generate instructions from the repo, not from assumptions. Read before writing.
 
-`AGENTS.md` is for durable project policy: purpose, architecture, commands, boundaries, workflow routing, and stable conventions. Do not put volatile task status there; use `docs/current_status.md` for that.
+`AGENTS.md` is for durable project policy: purpose, architecture, commands, boundaries, workflow routing, and stable conventions. Do not put volatile task status there; use `docs/current_status.md` for that. Prefer canonical project docs under `docs/` unless the repo already has a clear established location.
 
 ## Workflow
 
@@ -37,6 +37,7 @@ Extract only durable project guidance:
 - external services, env vars, secrets handling, data locations, or safety constraints
 - verification expectations
 - docs/status files agents should read first
+- canonical docs under `docs/` that should be maintained for architecture, commands, data contracts, runbooks, decisions, or research notes
 
 If a fact is uncertain, either verify it or phrase it as an instruction to inspect the relevant file.
 
@@ -52,6 +53,7 @@ Rules:
 - Preserve valuable existing project-specific instructions.
 - Remove stale or contradictory guidance only when repo evidence supports the change.
 - Do not include long explanations of why agent workflows exist.
+- Add a documentation stewardship rule that keeps `docs/current_status.md` concise and routes durable detail to the repo's canonical docs, preferably under `docs/`.
 
 ### 4. Add Claude Wrapper When Useful
 

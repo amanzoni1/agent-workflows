@@ -64,6 +64,13 @@ Before final response, decide:
 - blocked: cannot finish without missing input, broken environment, or external dependency
 - not complete: continue working
 
+Before claiming complete, decide whether docs need updating:
+
+- update `docs/current_status.md` after meaningful completed, paused, or redirected work
+- update canonical docs when changes affect reusable architecture, commands, data contracts, runbooks, decisions, or research notes
+- prefer canonical docs under `docs/` unless the repo already has a clear established location
+- keep status concise and link to detailed docs instead of duplicating long content
+
 Do not present blocked or unverified work as finished.
 
 ## Completion Report
@@ -72,5 +79,6 @@ Final response should include:
 
 - what changed
 - tests/checks run
+- docs updated, or why no docs update was needed
 - what was not verified, if anything
 - any follow-up that is genuinely useful

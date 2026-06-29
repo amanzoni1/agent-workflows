@@ -1,6 +1,6 @@
 ---
 name: project-continuity
-description: "Maintain docs/current_status.md as a precise handoff snapshot for current objectives, completed work, decisions, commands, blockers, and next steps."
+description: "Maintain docs/current_status.md and canonical docs as precise project continuity records for status, decisions, commands, blockers, and next steps."
 ---
 
 # Project Continuity
@@ -12,6 +12,8 @@ Use this skill to keep project state recoverable across agents, chats, and time.
 Write the status file so a new agent can resume without rereading the whole conversation.
 
 Keep durable instructions in `AGENTS.md`. Keep live status in `docs/current_status.md`.
+
+Documentation should be maintained at the right level: concise status in `docs/current_status.md`, durable reusable detail in the repo's canonical docs. Prefer canonical docs under `docs/` unless the repo already has a clear established location.
 
 ## When Updating Is Required
 
@@ -55,7 +57,19 @@ The file should answer:
 
 Keep it precise and concise. Prefer exact file paths, command names, branch names, data locations, and dates over vague prose.
 
-### 3. Preserve Useful Negative Results
+### 3. Route Documentation
+
+Always update `docs/current_status.md` as the resume anchor when continuity matters.
+
+If the repo declares canonical docs in `AGENTS.md`, `README.md`, or a docs index, update the relevant canonical doc too when the change belongs there.
+
+Prefer detailed canonical docs under `docs/` unless the repo already keeps that material elsewhere, such as a root `README.md`, package-local docs, or generated documentation.
+
+Keep `current_status.md` concise: record the outcome, decision, blocker, next step, and pointer to the detailed doc. Do not duplicate long runbooks, schemas, research notes, implementation plans, table contracts, or architecture notes there.
+
+If no canonical doc exists for reusable detail, either keep a short note in `current_status.md` or create/propose a focused doc only when the information is likely to be reused.
+
+### 4. Preserve Useful Negative Results
 
 Record dead ends when they will save future time:
 
@@ -65,15 +79,16 @@ Record dead ends when they will save future time:
 - flaky or unsafe operations
 - known non-issues that were already checked
 
-### 4. Avoid Noise
+### 5. Avoid Noise
 
 Do not turn the status file into a chat transcript or changelog. Remove stale details when they no longer help a new agent resume.
 
-### 5. Verify
+### 6. Verify
 
 Before finishing:
 
 - Re-read the status file as if you were a new agent.
 - Confirm that next steps are concrete.
 - Confirm that unresolved risks are explicit.
+- Confirm that reusable detail lives in the appropriate canonical doc or is linked from the status file.
 - Report whether the status file was updated and anything not verified.

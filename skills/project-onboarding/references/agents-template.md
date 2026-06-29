@@ -19,7 +19,7 @@ Classify the task before starting.
 
 If personal skills are unavailable, apply the same workflow inline.
 
-If `docs/current_status.md` exists, read it before non-trivial work. Keep volatile project state there, not in `AGENTS.md`. Update it after meaningful completed, paused, or redirected work.
+If `docs/current_status.md` exists, read it before non-trivial work. Keep volatile project state there, not in `AGENTS.md`. Update it after meaningful completed, paused, or redirected work. Keep canonical docs current when changes affect reusable architecture, commands, data contracts, runbooks, or decisions. Prefer canonical docs under `docs/` unless the repo already has a clear established location.
 
 Do not ask clarifying questions that are answerable from repo context. Inspect first. Ask only when the answer materially changes implementation.
 
@@ -48,6 +48,20 @@ Describe important directories, packages, services, data layers, jobs, or UI sur
 ## Development Rules
 
 Capture project-specific conventions, boundaries, generated files, migrations, secrets, data safety, and code ownership patterns.
+
+## Documentation Ownership
+
+Keep documentation precise and concise. Prefer canonical docs under `docs/` unless the repo already has a clear established location. Update them when changes affect reusable architecture, commands, data contracts, runbooks, decisions, or research notes. Keep `docs/current_status.md` as the resume anchor: outcome, decision, blocker, next step, and pointers to detailed docs.
+
+Declare canonical docs for this repo:
+
+- Project status / handoff: `docs/current_status.md`
+- Architecture:
+- Commands / operations:
+- Data model / schemas:
+- Source strategy / integrations:
+- Roadmap / decisions:
+- Research / experiments:
 
 ## Status And Handoff
 

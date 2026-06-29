@@ -59,4 +59,4 @@ For Claude Code projects, add a tiny `CLAUDE.md`:
 Use the personal skills when AGENTS.md classifies the task as debugging, planning, research validation, completion review, onboarding, or continuity work.
 ```
 
-Keep stable instructions in `AGENTS.md`. Keep live handoff state in `docs/current_status.md`.
+Keep stable instructions in `AGENTS.md`. Keep live handoff state in `docs/current_status.md`. Prefer durable project docs under `docs/` unless a repo already has a clear established location.
