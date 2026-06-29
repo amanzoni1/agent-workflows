@@ -1,0 +1,4 @@
+interface:
+  display_name: "Project Onboarding"
+  short_description: "Create project instructions from repo context."
+  default_prompt: "Use $project-onboarding to create or update AGENTS.md from this project."

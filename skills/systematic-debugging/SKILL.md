@@ -1,21 +1,23 @@
 ---
 name: systematic-debugging
-description: Use for technical issues where the root cause is unclear: failing tests, flaky behavior, regressions, production-like bugs, state/concurrency problems, queue/worker issues, database inconsistencies, external API failures, build failures, or performance regressions. Do not use for trivial, obvious single-line fixes where the cause is already known; handle those surgically and verify.
+description: "Evidence-first debugging for unclear failures, flaky tests, regressions, state/API/database/build/performance issues, and bugs where root cause must be proven before code changes."
 ---
 
 # Systematic Debugging
 
 Use this skill to find and fix root causes, not symptoms.
 
-## Core rule
+## Core Rule
 
 Do not change code until you have enough evidence to explain the likely root cause.
 
 Exception: if the cause is obvious and local, make the smallest surgical fix and verify it.
 
+Keep the workflow proportional. For a narrow failure, this may be a short trace and one confirming command. For flaky, stateful, external-service, or performance failures, be more rigorous.
+
 ## Workflow
 
-### 1. Understand the failure
+### 1. Understand the Failure
 
 Inspect the actual failure before proposing fixes.
 
@@ -26,7 +28,7 @@ Inspect the actual failure before proposing fixes.
 
 If the issue cannot be reproduced, gather more evidence instead of guessing.
 
-### 2. Reproduce or isolate
+### 2. Reproduce or Isolate
 
 Prefer the smallest reproduction available.
 
@@ -36,7 +38,7 @@ Prefer the smallest reproduction available.
 - For queue/worker issues, inspect job state, retry behavior, idempotency, and side effects.
 - For database/state issues, inspect persisted state before and after the failure.
 
-### 3. Trace the boundary
+### 3. Trace the Boundary
 
 Find where reality first diverges from expectation.
 
@@ -52,7 +54,13 @@ Check boundaries in this order when relevant:
 
 Add temporary logging or assertions only when they directly test a hypothesis. Remove temporary diagnostics before finishing unless they are intentionally useful observability.
 
-### 4. Form one hypothesis
+Optional deeper techniques:
+
+- Read `references/root-cause-tracing.md` when the error appears far from the original trigger, invalid data travels through several layers, or a stack trace is not enough.
+- Read `references/condition-based-waiting.md` when debugging flaky async tests, sleeps, polling, retries, race conditions, or timeouts.
+- Read `references/defense-in-depth.md` when the root cause is unsafe invalid state crossing trust boundaries, dangerous filesystem/process/database effects, security-sensitive behavior, or repeated bypasses of a single validation point.
+
+### 4. Form One Hypothesis
 
 State the most likely root cause in one sentence.
 
@@ -64,7 +72,7 @@ Good hypothesis:
 
 Avoid changing multiple unrelated things at once.
 
-### 5. Test the hypothesis
+### 5. Test the Hypothesis
 
 Run the smallest check that can confirm or reject the hypothesis.
 
@@ -72,7 +80,7 @@ Run the smallest check that can confirm or reject the hypothesis.
 - If rejected, record what was learned and form a new hypothesis.
 - Do not keep patching symptoms.
 
-### 6. Fix and verify
+### 6. Fix and Verify
 
 Implement the minimal safe fix.
 
@@ -85,7 +93,7 @@ Then verify with:
 
 For behavior changes, prefer adding or updating a test.
 
-## Completion report
+## Completion Report
 
 Before finishing, report:
 

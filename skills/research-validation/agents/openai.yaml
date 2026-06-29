@@ -1,0 +1,4 @@
+interface:
+  display_name: "Research Validation"
+  short_description: "Validate research and benchmark claims."
+  default_prompt: "Use $research-validation to define the hypothesis, baseline, metric, and measurement plan."

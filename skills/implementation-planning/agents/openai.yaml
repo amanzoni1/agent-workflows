@@ -1,0 +1,4 @@
+interface:
+  display_name: "Implementation Planning"
+  short_description: "Plan substantial coding changes before editing."
+  default_prompt: "Use $implementation-planning to plan this non-trivial code change before implementation."

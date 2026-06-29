@@ -1,0 +1,4 @@
+interface:
+  display_name: "Completion Review"
+  short_description: "Review risky work before claiming done."
+  default_prompt: "Use $completion-review to check this change before finalizing it."

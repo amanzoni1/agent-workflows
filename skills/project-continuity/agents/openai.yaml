@@ -1,0 +1,4 @@
+interface:
+  display_name: "Project Continuity"
+  short_description: "Maintain handoff status for agent work."
+  default_prompt: "Use $project-continuity to update the project handoff status."
