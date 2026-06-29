@@ -11,7 +11,7 @@ The goal is a lightweight operating layer, not a methodology framework. `AGENTS.
 - `research-validation`: hypothesis, baseline, metric, and measurement discipline for ML, data, performance, benchmark, and evaluation work.
 - `completion-review`: final review pass for risky, large, or cross-cutting changes before claiming completion.
 - `project-onboarding`: create or update project-level `AGENTS.md` from README, docs, source layout, commands, and plans.
-- `project-continuity`: maintain `docs/current_status.md` as the precise handoff snapshot for future agents.
+- `project-continuity`: maintain `docs/current_status.md` and canonical docs as precise continuity records for future agents.
 
 ## Design Rules
 
