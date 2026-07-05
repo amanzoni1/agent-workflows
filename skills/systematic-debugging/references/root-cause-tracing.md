@@ -21,12 +21,12 @@ Add diagnostics only when they test a specific hypothesis or reveal an upstream 
 
 ```typescript
 async function runDangerousOperation(input: Input) {
-  const stack = new Error().stack;
-  console.error('DEBUG dangerous operation', {
+  console.error('DEBUG before dangerous operation', {
     input,
     cwd: process.cwd(),
-    stack,
+    stack: new Error().stack,
   });
+  return dangerousOperation(input);
 }
 ```
 

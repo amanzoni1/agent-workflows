@@ -1,17 +1,17 @@
 ---
 name: project-onboarding
-description: "Create or update project AGENTS.md/CLAUDE.md instructions from README, docs, source layout, commands, plans, and repo conventions."
+description: "Create or update project AGENTS.md/CLAUDE.md agent instructions from repo evidence. Use for new repos, missing or stale agent files, or READMEs/plans that should become instructions."
 ---
 
 # Project Onboarding
 
 Use this skill to turn a project description and repository evidence into stable agent instructions.
 
-## Core Rule
+## Gate
 
-Generate instructions from the repo, not from assumptions. Read before writing.
+**Generate instructions from repo evidence, not assumptions. Read before writing.**
 
-`AGENTS.md` is for durable project policy: purpose, architecture, commands, boundaries, workflow routing, and stable conventions. Do not put volatile task status there; use `docs/current_status.md` for that. Prefer canonical project docs under `docs/` unless the repo already has a clear established location.
+`AGENTS.md` is for durable project policy: purpose, architecture, commands, boundaries, workflow routing, and stable conventions. Do not put volatile task status there; use `docs/current_status.md` for that.
 
 ## Workflow
 
@@ -43,12 +43,13 @@ If a fact is uncertain, either verify it or phrase it as an instruction to inspe
 
 ### 3. Create or Update `AGENTS.md`
 
-Use `references/agents-template.md` as the structure.
+Use `references/agents-template.md` as the structure. Take the workflow policy block from `references/agents-block.md`.
 
 Rules:
 
-- Put the reusable workflow policy near the top.
-- Add project-specific sections below it.
+- Put the workflow policy block near the top, keeping its `agent-workflow-policy` version marker line.
+- If the project already has the block, compare version markers: replace an older or unmarked block with the current one and preserve the project-specific sections below it.
+- Add project-specific sections below the block.
 - Keep the file concise enough that agents will actually read it.
 - Preserve valuable existing project-specific instructions.
 - Remove stale or contradictory guidance only when repo evidence supports the change.

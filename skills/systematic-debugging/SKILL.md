@@ -1,17 +1,17 @@
 ---
 name: systematic-debugging
-description: "Evidence-first debugging for unclear failures, flaky tests, regressions, state/API/database/build/performance issues, and bugs where root cause must be proven before code changes."
+description: "Evidence-first debugging that finds the root cause before changing code. Use when a failure is unclear, flaky, a regression, or involves state/API/database/build/performance issues."
 ---
 
 # Systematic Debugging
 
 Use this skill to find and fix root causes, not symptoms.
 
-## Core Rule
+## Gate
 
-Do not change code until you have enough evidence to explain the likely root cause.
+**Do not change code until you can state a root-cause hypothesis backed by observed evidence.**
 
-Exception: if the cause is obvious and local, make the smallest surgical fix and verify it.
+If the error output alone already proves the root cause, skip to step 6 — but still verify with the original reproduction.
 
 Keep the workflow proportional. For a narrow failure, this may be a short trace and one confirming command. For flaky, stateful, external-service, or performance failures, be more rigorous.
 
@@ -87,7 +87,7 @@ Implement the minimal safe fix.
 Then verify with:
 
 - the original failing command/test/reproduction
-- a regression test when practical
+- a regression test; if you skip one, say so and why
 - nearby tests for affected behavior
 - lint/type checks only when relevant to the changed code
 

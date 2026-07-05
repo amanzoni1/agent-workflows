@@ -1,19 +1,17 @@
 ---
 name: project-continuity
-description: "Maintain docs/current_status.md and canonical docs as precise project continuity records for status, decisions, commands, blockers, and next steps."
+description: "Maintain docs/current_status.md and canonical docs as project continuity records. Use for handoffs, status updates, context refresh, or after meaningful completed, paused, or redirected work."
 ---
 
 # Project Continuity
 
 Use this skill to keep project state recoverable across agents, chats, and time.
 
-## Core Rule
+## Gate
 
-Write the status file so a new agent can resume without rereading the whole conversation.
+**After meaningful work, update `docs/current_status.md` so a new agent can resume without rereading the conversation.**
 
-Keep durable instructions in `AGENTS.md`. Keep live status in `docs/current_status.md`.
-
-Documentation should be maintained at the right level: concise status in `docs/current_status.md`, durable reusable detail in the repo's canonical docs. Prefer canonical docs under `docs/` unless the repo already has a clear established location.
+Keep durable instructions in `AGENTS.md`. Keep concise live status in `docs/current_status.md`. Route durable reusable detail to the repo's canonical docs, preferably under `docs/` unless the repo already has a clear established location.
 
 ## When Updating Is Required
 
@@ -62,8 +60,6 @@ Keep it precise and concise. Prefer exact file paths, command names, branch name
 Always update `docs/current_status.md` as the resume anchor when continuity matters.
 
 If the repo declares canonical docs in `AGENTS.md`, `README.md`, or a docs index, update the relevant canonical doc too when the change belongs there.
-
-Prefer detailed canonical docs under `docs/` unless the repo already keeps that material elsewhere, such as a root `README.md`, package-local docs, or generated documentation.
 
 Keep `current_status.md` concise: record the outcome, decision, blocker, next step, and pointer to the detailed doc. Do not duplicate long runbooks, schemas, research notes, implementation plans, table contracts, or architecture notes there.
 

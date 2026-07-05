@@ -1,15 +1,15 @@
 ---
 name: research-validation
-description: "Validate research, ML, data, performance, benchmark, model, and evaluation claims with a hypothesis, baseline, metric, measurement method, and limitations."
+description: "Validate research, ML, data, performance, benchmark, and evaluation claims with a hypothesis, baseline, predeclared metric, and limitations. Use before claiming one approach is better than another."
 ---
 
 # Research Validation
 
 Use this skill to prevent weak evidence from becoming a confident claim.
 
-## Core Rule
+## Gate
 
-Do not claim an approach is better until it has been compared against a relevant baseline with a defined metric.
+**Do not claim an approach is better until it beats a relevant baseline on a predeclared metric.**
 
 If the evidence is weak, noisy, biased, too small, or operationally impractical, say so directly.
 
@@ -21,9 +21,9 @@ Write the decision being tested in one sentence.
 
 Good questions are concrete:
 
-- Does this source add useful signal beyond existing data?
-- Does this model beat the current baseline on the target metric?
-- Does this optimization reduce latency under the relevant workload?
+- Does this approach or model beat the current baseline on the target metric?
+- Does this optimization reduce latency, memory, or cost under the relevant workload?
+- Does this data source, dependency, or tool add value beyond what already exists?
 - Is this implementation direction worth continuing?
 
 ### 2. Define the Hypothesis
@@ -41,10 +41,10 @@ Include:
 Compare against the simplest relevant alternative:
 
 - current production behavior
-- existing model or heuristic
-- random, majority, recency, or popularity baseline
+- existing model, heuristic, or implementation
+- trivial baseline: random, majority, recency, popularity, or naive implementation
 - previous benchmark result
-- no-new-source or no-change version
+- the no-change version
 
 Do not compare only against a weak straw baseline.
 
@@ -56,7 +56,7 @@ Use metrics that match the goal:
 
 - predictive work: out-of-sample performance, calibration, ranking quality, leakage checks
 - performance work: latency, throughput, memory, cost, tail behavior
-- data/source work: coverage, freshness, stability, backfill depth, join rate, collection risk
+- data/source work: coverage, correctness, freshness, stability, acquisition and maintenance cost
 - product/UX work: task completion, error rate, time, user-visible correctness
 
 Also define practical significance. A tiny metric lift may not justify operational complexity.

@@ -10,9 +10,15 @@ SKILLS=(
   project-onboarding
   project-continuity
 )
+TARGETS=(
+  "$HOME/.codex/skills"
+  "$HOME/.claude/skills"
+  "$HOME/.pi/agent/skills"
+)
 
-mkdir -p "$HOME/.codex/skills"
-mkdir -p "$HOME/.claude/skills"
+# AGENTS.block.md is the single source of truth for the workflow policy;
+# refresh the copy that ships inside project-onboarding before installing.
+cp "$ROOT/AGENTS.block.md" "$ROOT/skills/project-onboarding/references/agents-block.md"
 
 copy_skill() {
   local source="$1"
@@ -29,9 +35,9 @@ for skill in "${SKILLS[@]}"; do
     continue
   fi
 
-  copy_skill "$ROOT/skills/$skill" "$HOME/.codex/skills/$skill"
-  copy_skill "$ROOT/skills/$skill" "$HOME/.claude/skills/$skill"
-  rm -rf "$HOME/.agents/skills/$skill"
+  for target in "${TARGETS[@]}"; do
+    copy_skill "$ROOT/skills/$skill" "$target/$skill"
+  done
 
   echo "Installed $skill"
 done

@@ -1,15 +1,15 @@
 ---
 name: completion-review
-description: "Final review before claiming non-trivial coding work is complete, especially for large, risky, cross-cutting, user-facing, data, security, or ops changes."
+description: "Final review of the actual diff and verification evidence before claiming coding work complete. Use for non-trivial, large, risky, cross-cutting, user-facing, data, security, or ops changes."
 ---
 
 # Completion Review
 
 Use this skill to catch unfinished work before reporting completion.
 
-## Core Rule
+## Gate
 
-Review the actual diff and verification evidence, not just the intended plan.
+**Do not claim completion without reviewing the actual diff and naming what was not verified.**
 
 Completion means the requested behavior is implemented, checked, and explainable. It does not mean every possible test passed, but unverified areas must be explicit.
 
@@ -64,12 +64,7 @@ Before final response, decide:
 - blocked: cannot finish without missing input, broken environment, or external dependency
 - not complete: continue working
 
-Before claiming complete, decide whether docs need updating:
-
-- update `docs/current_status.md` after meaningful completed, paused, or redirected work
-- update canonical docs when changes affect reusable architecture, commands, data contracts, runbooks, decisions, or research notes
-- prefer canonical docs under `docs/` unless the repo already has a clear established location
-- keep status concise and link to detailed docs instead of duplicating long content
+Before claiming complete, decide whether the work warrants a documentation or status update. If it does, apply `project-continuity`: update `docs/current_status.md` and any affected canonical docs.
 
 Do not present blocked or unverified work as finished.
 

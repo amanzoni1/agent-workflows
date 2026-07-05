@@ -8,11 +8,15 @@ Wait for the condition that proves the system reached the desired state. Do not 
 
 ## Pattern
 
+Bad — guessed sleep, flaky by construction:
+
 ```typescript
 await new Promise(r => setTimeout(r, 50));
 const result = getResult();
 expect(result).toBeDefined();
 ```
+
+Good — wait for the condition that proves readiness:
 
 ```typescript
 const result = await waitFor(
@@ -44,6 +48,8 @@ async function waitFor<T>(
   }
 }
 ```
+
+This helper treats any falsy result as "not ready". If a legitimate result can be falsy (`0`, `''`, `false`), wrap the condition so it returns an explicit boolean or object.
 
 ## Good Conditions
 

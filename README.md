@@ -21,6 +21,7 @@ The goal is a lightweight operating layer, not a methodology framework. `AGENTS.
 - Put optional deeper techniques in `references/`, loaded only when relevant.
 - Do not require TDD, subagents, or elaborate ceremony by default.
 - Require evidence before claiming root cause, improvement, or completion.
+- Each skill has exactly one hard gate, stated bold and hedge-free; everything else is advisory.
 
 ## Repository Layout
 
@@ -45,9 +46,9 @@ Run:
 ./install.sh
 ```
 
-The installer copies skills into Codex and Claude Code discovery folders.
+The installer refreshes the workflow-policy copy inside `project-onboarding` from `AGENTS.block.md`, then copies skills into the Codex, Claude Code, and pi discovery folders (`~/.codex/skills`, `~/.claude/skills`, `~/.pi/agent/skills`). Re-run it after editing skills.
 
-Paste `AGENTS.block.md` into a project's `AGENTS.md`, then add project-specific commands, architecture notes, and boundaries below it.
+Paste `AGENTS.block.md` into a project's `AGENTS.md`, then add project-specific commands, architecture notes, and boundaries below it. The block carries an `agent-workflow-policy` version marker; `project-onboarding` uses it to detect and refresh stale copies in existing projects. `AGENTS.block.md` is the single source of truth for the policy — edit only that file.
 
 For Claude Code projects, add a tiny `CLAUDE.md`:
 
@@ -56,5 +57,7 @@ For Claude Code projects, add a tiny `CLAUDE.md`:
 
 Use the personal skills when AGENTS.md classifies the task as debugging, planning, research validation, completion review, onboarding, or continuity work.
 ```
+
+Recent Claude Code versions read `AGENTS.md` natively; the wrapper is only needed for older versions or when the extra routing emphasis is worth two lines.
 
 Keep stable instructions in `AGENTS.md`. Keep live handoff state in `docs/current_status.md`. Prefer durable project docs under `docs/` unless a repo already has a clear established location.
